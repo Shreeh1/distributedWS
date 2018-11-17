@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/calculatorDescription" xmlns:tns="http://www.example.org/calculatorDescription" elementFormDefault="qualified">
+	<xs:element name="getCubeRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="var1" type="xs:int"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getCubeResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="cube" type="xs:int"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getDivideRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="var1" type="xs:int"></xs:element>
+				<xs:element name="var2" type="xs:int"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getDivideResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="quotient" type="xs:int"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
