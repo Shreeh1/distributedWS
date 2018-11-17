@@ -1,1 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cs="http://www.example.org/calculatorDescription">
+	<soapenv:Header/>
+	<soapenv:Body>
+		<cs:getSquareRequest>
+			<cs:var1>3</cs:var1>
+		</cs:getSquareRequest>
+	</soapenv:Body>
+</soapenv:Envelope>
