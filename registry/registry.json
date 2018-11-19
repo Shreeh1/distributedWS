@@ -1,0 +1,1 @@
+{"Servers":{"Server1":{"IP":"127.0.0.1","services":["GetProductRequest","GetSquareRequest","GetSumRequest"],"port":8080},"Server2":{"IP":"127.0.0.1","services":["GetDifferenceRequest","GetSquareRequest"],"port":8081},"Server3":{"IP":"127.0.0.1","services":["GetDifferenceRequest","GetCubeRequest"],"port":8082}}}
