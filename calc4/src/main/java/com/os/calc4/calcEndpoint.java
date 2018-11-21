@@ -13,9 +13,9 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 @Endpoint
 public class calcEndpoint {
 	
-	@PayloadRoot(namespace = "http://www.example.org/calculatorDescription", localPart = "getSquareRequest")
+	@PayloadRoot(namespace = "http://www.example.org/calculatorDescription", localPart = "getCubeRequest")
 	@ResponsePayload
-	public GetCubeResponse getSquareRequest(@RequestPayload GetCubeRequest request){
+	public GetCubeResponse getCubeRequest(@RequestPayload GetCubeRequest request){
 		
 		GetCubeResponse response = new GetCubeResponse();
 		int a = request.getVar1();
@@ -23,9 +23,9 @@ public class calcEndpoint {
 		return response;
 	}
 	
-	@PayloadRoot(namespace = "http://www.example.org/calculatorDescription", localPart = "getDifferenceRequest")
+	@PayloadRoot(namespace = "http://www.example.org/calculatorDescription", localPart = "getDivideRequest")
 	@ResponsePayload
-	public GetDivideResponse getSumRequest(@RequestPayload GetDivideRequest request){
+	public GetDivideResponse getDivideRequest(@RequestPayload GetDivideRequest request){
 		
 		GetDivideResponse response = new GetDivideResponse();
 		int a = request.getVar1();

@@ -25,7 +25,7 @@ public class calcEndpoint {
 	
 	@PayloadRoot(namespace = "http://www.example.org/calculatorDescription", localPart = "getDifferenceRequest")
 	@ResponsePayload
-	public GetDifferenceResponse getSumRequest(@RequestPayload GetDifferenceRequest request){
+	public GetDifferenceResponse getDifferenceRequest(@RequestPayload GetDifferenceRequest request){
 		
 		GetDifferenceResponse response = new GetDifferenceResponse();
 		int a = request.getVar1();

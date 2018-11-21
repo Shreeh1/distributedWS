@@ -16,15 +16,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CalcApplication {
 
 	public static void main(String[] args) throws ClientProtocolException, IOException {
-		registerServer();
 		SpringApplication.run(CalcApplication.class, args);
+		registerServer();
 	}
 
 	private static void registerServer() throws ClientProtocolException, IOException {
 		// TODO Auto-generated method stub
 		DefaultHttpClient httpClient = new DefaultHttpClient();
 		HttpPost postRequest = new HttpPost("http://127.0.0.1:3000/registerServer");
-		StringEntity input = new StringEntity("{\"Server1\":{\"IP\":\"127.0.0.1\",\"services\":[\"GetProductRequest\",\"GetSquareRequest\",\"GetSumRequest\"],\"port\":8080}}");
+		StringEntity input = new StringEntity("{\"Server1\":{\"URL\":\"http://127.0.0.1:8080/soapWS/calc.wsdl\",\"services\":[\"GetProductRequest\",\"GetSquareRequest\",\"GetSumRequest\"]}}");
 		input.setContentType("application/json");
 		postRequest.setEntity(input);
 		

@@ -14,14 +14,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Calc4Application {
 
 	public static void main(String[] args) throws ClientProtocolException, IOException {
-		registerServer();
 		SpringApplication.run(Calc4Application.class, args);	
+		registerServer();
 	}
 	private static void registerServer() throws ClientProtocolException, IOException {
 		// TODO Auto-generated method stub
 		DefaultHttpClient httpClient = new DefaultHttpClient();
 		HttpPost postRequest = new HttpPost("http://127.0.0.1:3000/registerServer");
-		StringEntity input = new StringEntity("{\"Server4\":{\"IP\":\"127.0.0.1\",\"services\":[\"GetCubeRequest\",\"GetDifferenceRequest\",\"GetDivideRequest\"],\"port\":8083}}");
+		StringEntity input = new StringEntity("{\"Server4\":{\"URL\":\"http://127.0.0.1:8083/soapWS/calc.wsdl\",\"services\":[\"GetCubeRequest\",\"GetDivideRequest\"]}}");
 		input.setContentType("application/json");
 		postRequest.setEntity(input);
 		
