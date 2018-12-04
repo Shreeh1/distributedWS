@@ -39,7 +39,8 @@ def restCall(op):
         return server['URL']
 
 def main():
-    operations = ['add','subtract','multiply','divide','square','cube']
+    # operations = ['add','subtract','multiply','divide','square','cube']
+    operations = ['add','multiply','square']
     for i in range(100):
         op = random.choice(operations)
         wsdl = restCall(op)

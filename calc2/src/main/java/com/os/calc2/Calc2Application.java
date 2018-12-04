@@ -1,6 +1,7 @@
 package com.os.calc2;
 
 import java.io.IOException;
+import java.net.Socket;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -18,9 +19,11 @@ public class Calc2Application {
 		registerServer();
 	}
 	private static void registerServer() throws ClientProtocolException, IOException {
-		// TODO Auto-generated method stub
+		
+		int port = 3000;
+		if(!works(port)) { port = 3001;}
 		DefaultHttpClient httpClient = new DefaultHttpClient();
-		HttpPost postRequest = new HttpPost("http://127.0.0.1:3000/registerServer");
+		HttpPost postRequest = new HttpPost("http://127.0.0.1:"+Integer.toString(port)+"/registerServer");
 		StringEntity input = new StringEntity("{\"Server2\":{\"URL\":\"http://127.0.0.1:8081/soapWS/calc.wsdl\",\"services\":[\"GetDifferenceRequest\",\"GetSquareRequest\"]}}");
 		input.setContentType("application/json");
 		postRequest.setEntity(input);
@@ -29,6 +32,22 @@ public class Calc2Application {
 		
 		if(response.getStatusLine().getStatusCode() != 200) {
 			throw new RuntimeException("Failed : HTTP error code:"+response.getStatusLine().getStatusCode());
+		}
+	}
+	private static boolean works(int port) {
+		Socket s = null;
+		try {
+			s = new Socket("127.0.0.1", port);
+			return true;
+		}
+		catch(Exception e) {
+			return false;
+		}
+		finally
+		{
+			if(s!=null)
+				try {s.close();}
+				catch(Exception e) {}
 		}
 	}
 }

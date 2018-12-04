@@ -3,6 +3,7 @@ import json
 import time
 import errno
 from pprint import pprint
+import sys
 
 def checkPorts(urls, path):
     for i in urls:

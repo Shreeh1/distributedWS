@@ -1,6 +1,7 @@
 package com.os.calc4;
 
 import java.io.IOException;
+import java.net.Socket;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -18,9 +19,11 @@ public class Calc4Application {
 		registerServer();
 	}
 	private static void registerServer() throws ClientProtocolException, IOException {
-		// TODO Auto-generated method stub
+		int port = 3000;
+		if(!works(port)) { port = 3001;}
+		System.out.println(port);
 		DefaultHttpClient httpClient = new DefaultHttpClient();
-		HttpPost postRequest = new HttpPost("http://127.0.0.1:3000/registerServer");
+		HttpPost postRequest = new HttpPost("http://127.0.0.1:"+Integer.toString(port)+"/registerServer");
 		StringEntity input = new StringEntity("{\"Server4\":{\"URL\":\"http://127.0.0.1:8083/soapWS/calc.wsdl\",\"services\":[\"GetCubeRequest\",\"GetDivideRequest\"]}}");
 		input.setContentType("application/json");
 		postRequest.setEntity(input);
@@ -29,6 +32,23 @@ public class Calc4Application {
 		
 		if(response.getStatusLine().getStatusCode() != 200) {
 			throw new RuntimeException("Failed : HTTP error code:"+response.getStatusLine().getStatusCode());
+		}
+	}
+	private static boolean works(int port) {
+		Socket s = null;
+		System.out.println(port);
+		try {
+			s = new Socket("127.0.0.1", port);
+			return true;
+		}
+		catch(Exception e) {
+			return false;
+		}
+		finally
+		{
+			if(s!=null)
+				try {s.close();}
+				catch(Exception e) {}
 		}
 	}
 }
