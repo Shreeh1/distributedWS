@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="calc/src/main/java"/>
+	<classpathentry kind="src" path="calc2/src/main/java"/>
+	<classpathentry kind="src" path="calc2/src/test/java"/>
+	<classpathentry kind="src" path="calc3/src/main/java"/>
+	<classpathentry kind="src" path="calc3/src/test/java"/>
+	<classpathentry kind="src" path="calc4/src/main/java"/>
+	<classpathentry kind="src" path="calc4/src/test/java"/>
+	<classpathentry kind="src" path="registry"/>
+	<classpathentry kind="lib" path="calc2/.mvn/wrapper/maven-wrapper.jar"/>
+	<classpathentry kind="lib" path="calc3/.mvn/wrapper/maven-wrapper.jar"/>
+	<classpathentry kind="lib" path="calc4/.mvn/wrapper/maven-wrapper.jar"/>
+	<classpathentry kind="lib" path="Deployment/calc-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="Deployment/calc2-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="Deployment/calc3-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="Deployment/calc4-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="output" path="calc/target/classes"/>
+</classpath>
