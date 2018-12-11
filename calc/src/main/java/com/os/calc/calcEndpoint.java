@@ -64,6 +64,12 @@ public class calcEndpoint {
 		int b = request.getVar2();
 		response.setProduct(a*b);
 		load+=7;
+		try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		load-=7;
 		return response;
 	}

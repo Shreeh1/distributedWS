@@ -1,6 +1,8 @@
 package com.os.calc2;
 
 
+import java.util.concurrent.TimeUnit;
+
 import org.example.calculatordescription.GetDifferenceRequest;
 import org.example.calculatordescription.GetDifferenceResponse;
 import org.example.calculatordescription.GetSquareRequest;
@@ -12,6 +14,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 @Endpoint
 public class calcEndpoint {
+	static volatile int load = 0; 
 	
 	@PayloadRoot(namespace = "http://www.example.org/calculatorDescription", localPart = "getSquareRequest")
 	@ResponsePayload
@@ -20,6 +23,14 @@ public class calcEndpoint {
 		GetSquareResponse response = new GetSquareResponse();
 		int a = request.getVar1();
 		response.setSquare(a*a);
+		load+=10;
+		try {
+			TimeUnit.SECONDS.sleep(2);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		load-=10;
 		return response;
 	}
 	
@@ -31,6 +42,14 @@ public class calcEndpoint {
 		int a = request.getVar1();
 		int b = request.getVar2();
 		response.setDifference(a-b);
+		load+=5;
+		try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		load-=5;
 		return response;
 	}
 	
